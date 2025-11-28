@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: 2024 hyperpolymath
+-->
+
 # Claude GitLab Bridge
 
 ## Project Overview
