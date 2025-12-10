@@ -1,4 +1,4 @@
-# Claude GitLab Bridge
+= Claude GitLab Bridge
 
 [![RSR Compliance](https://img.shields.io/badge/RSR-GOLD-gold?style=flat-square)](RSR.md)
 [![TPCF](https://img.shields.io/badge/TPCF-Perimeter%203-blue?style=flat-square)](GOVERNANCE.adoc)
@@ -7,75 +7,75 @@
 
 > Bridge between Claude AI and GitLab for enhanced developer productivity
 
-## Overview
+== Overview
 
 Claude GitLab Bridge seamlessly integrates Anthropic's Claude AI assistant with GitLab, enabling AI-powered development workflows directly within your GitLab projects.
 
-### Key Features
+=== Key Features
 
-* 🤖 **AI-Powered Assistance**: Leverage Claude's capabilities for code review, issue analysis, and task automation
-* 🔄 **GitLab Integration**: Full GitLab API v4 support for issues, merge requests, and repositories
-* 🔒 **Security First**: Secure token management, minimal permissions, and audit logging
-* 🚀 **Webhook Support**: Real-time event processing for automated responses
-* 📊 **Context-Aware**: Maintains conversation context across interactions
-* 🌳 **Branch Management**: Automatic branch creation and commit handling
+* 🤖 *AI-Powered Assistance*: Leverage Claude's capabilities for code review, issue analysis, and task automation
+* 🔄 *GitLab Integration*: Full GitLab API v4 support for issues, merge requests, and repositories
+* 🔒 *Security First*: Secure token management, minimal permissions, and audit logging
+* 🚀 *Webhook Support*: Real-time event processing for automated responses
+* 📊 *Context-Aware*: Maintains conversation context across interactions
+* 🌳 *Branch Management*: Automatic branch creation and commit handling
 
-## Quick Start
+== Quick Start
 
-### Prerequisites
+=== Prerequisites
 
 * Node.js 18+ (LTS recommended)
 * GitLab account with API access
 * Anthropic API key for Claude
 
-### Installation
+=== Installation
 
 ```bash
-# Clone the repository
+= Clone the repository
 git clone https://github.com/hyperpolymath/claude-gitlab-bridge.git
 cd claude-gitlab-bridge
 
-# Install dependencies
+= Install dependencies
 npm install
 
-# Configure environment
+= Configure environment
 cp .env.example .env
-# Edit .env with your credentials
+= Edit .env with your credentials
 
-# Run tests
+= Run tests
 npm test
 
-# Start the application
+= Start the application
 npm start
 ```
 
-### Configuration
+=== Configuration
 
 Create a `.env` file with:
 
 ```env
-# GitLab Configuration
+= GitLab Configuration
 GITLAB_TOKEN=your_gitlab_token_here
 GITLAB_URL=https://gitlab.com
 
-# Claude Configuration
+= Claude Configuration
 ANTHROPIC_API_KEY=your_anthropic_key_here
 
-# Application Configuration
+= Application Configuration
 WEBHOOK_SECRET=your_webhook_secret_here
 PORT=3000
 ```
 
-### GitLab Token Permissions
+=== GitLab Token Permissions
 
 Required scopes:
 * `api` - Full API access
 * `read_repository` - Read repository content
 * `write_repository` - Create branches and commits
 
-## Usage
+== Usage
 
-### Basic Example
+=== Basic Example
 
 ```typescript
 import { ClaudeGitLabBridge } from 'claude-gitlab-bridge'
@@ -94,11 +94,11 @@ const analysis = await bridge.analyzeIssue({
 console.log(analysis)
 ```
 
-### Webhook Integration
+=== Webhook Integration
 
 Configure GitLab webhooks to point to your deployment:
 
-1. Go to **Settings → Webhooks** in your GitLab project
+1. Go to *Settings → Webhooks* in your GitLab project
 2. Add URL: `https://your-deployment.com/webhook`
 3. Secret Token: Use `WEBHOOK_SECRET` from `.env`
 4. Trigger events:
@@ -106,7 +106,7 @@ Configure GitLab webhooks to point to your deployment:
    - Merge request events
    - Push events
 
-## Architecture
+== Architecture
 
 ```
 ┌─────────────┐       ┌──────────────┐       ┌────────────┐
@@ -120,48 +120,48 @@ Configure GitLab webhooks to point to your deployment:
                        └────────────┘
 ```
 
-### Core Components
+=== Core Components
 
-* **GitLab Integration**: API client and webhook processor
-* **Claude Integration**: AI request handler and context manager
-* **Event Processing**: Async webhook event queue
-* **Context Management**: Conversation state persistence
-* **Branch Management**: Automated Git operations
+* *GitLab Integration*: API client and webhook processor
+* *Claude Integration*: AI request handler and context manager
+* *Event Processing*: Async webhook event queue
+* *Context Management*: Conversation state persistence
+* *Branch Management*: Automated Git operations
 
-## Development
+== Development
 
-### Prerequisites
+=== Prerequisites
 
 * All installation prerequisites
 * Git
 * Code editor (VS Code recommended)
 
-### Development Workflow
+=== Development Workflow
 
 ```bash
-# Install with dev dependencies
+= Install with dev dependencies
 npm install
 
-# Run in development mode
+= Run in development mode
 npm run dev
 
-# Run tests
+= Run tests
 npm test
 
-# Run tests in watch mode
+= Run tests in watch mode
 npm test -- --watch
 
-# Lint code
+= Lint code
 npm run lint
 
-# Format code
+= Format code
 npm run format
 
-# Type check
+= Type check
 npm run type-check
 ```
 
-### Project Structure
+=== Project Structure
 
 ```
 claude-gitlab-bridge/
@@ -177,23 +177,23 @@ claude-gitlab-bridge/
 └── .well-known/      # Standard metadata files
 ```
 
-### Running Tests
+=== Running Tests
 
 ```bash
-# All tests
+= All tests
 npm test
 
-# Unit tests only
+= Unit tests only
 npm run test:unit
 
-# Integration tests
+= Integration tests
 npm run test:integration
 
-# Coverage report
+= Coverage report
 npm run test:coverage
 ```
 
-## Documentation
+== Documentation
 
 * [Contributing Guide](CONTRIBUTING.adoc) - How to contribute
 * [Code of Conduct](CODE_OF_CONDUCT.adoc) - Community guidelines
@@ -202,35 +202,35 @@ npm run test:coverage
 * [Reversibility](REVERSIBILITY.md) - Safe experimentation philosophy
 * [RSR Compliance](RSR.md) - Standards compliance documentation
 
-## Standards Compliance
+== Standards Compliance
 
-This project achieves **RSR GOLD** compliance:
+This project achieves *RSR GOLD* compliance:
 
-* ✅ **Category 1**: Repository Metadata & Standards
-* ✅ **Category 2**: Documentation Quality
-* ✅ **Category 3**: Development Infrastructure
-* ✅ **Category 4**: Architecture & Code Quality
-* ✅ **Category 5**: Testing & Quality Assurance
-* ✅ **Category 6**: Build & Release
-* ✅ **Category 7**: Security
-* ✅ **Category 8**: Community & Contribution
-* ✅ **Category 9**: Legal & Licensing
-* ✅ **Category 10**: Governance
-* ✅ **Category 11**: Operational Excellence
+* ✅ *Category 1*: Repository Metadata & Standards
+* ✅ *Category 2*: Documentation Quality
+* ✅ *Category 3*: Development Infrastructure
+* ✅ *Category 4*: Architecture & Code Quality
+* ✅ *Category 5*: Testing & Quality Assurance
+* ✅ *Category 6*: Build & Release
+* ✅ *Category 7*: Security
+* ✅ *Category 8*: Community & Contribution
+* ✅ *Category 9*: Legal & Licensing
+* ✅ *Category 10*: Governance
+* ✅ *Category 11*: Operational Excellence
 
 See [RSR.md](RSR.md) for detailed compliance information.
 
-### TPCF Framework
+=== TPCF Framework
 
 This project uses the Tri-Perimeter Contribution Framework:
 
-* **Perimeter 3** (Community Sandbox): Open to all - [YOU ARE HERE]
-* **Perimeter 2** (Trusted Contributors): Earned through sustained contributions
-* **Perimeter 1** (Core Maintainers): By invitation only
+* *Perimeter 3* (Community Sandbox): Open to all - [YOU ARE HERE]
+* *Perimeter 2* (Trusted Contributors): Earned through sustained contributions
+* *Perimeter 1* (Core Maintainers): By invitation only
 
 See [GOVERNANCE.adoc](GOVERNANCE.adoc) for details.
 
-## Security
+== Security
 
 Security is a top priority. We follow industry best practices:
 
@@ -239,18 +239,18 @@ Security is a top priority. We follow industry best practices:
 * 📋 Security audit logging
 * ⚠️ Vulnerability disclosure policy
 
-**Found a security issue?**
+*Found a security issue?*
 
-**DO NOT** open a public issue. Instead:
+*DO NOT* open a public issue. Instead:
 
 * Email: security@hyperpolymath.dev
 * GitHub Security Advisory: [Create Advisory](https://github.com/hyperpolymath/claude-gitlab-bridge/security/advisories/new)
 
 See [SECURITY.md](SECURITY.md) for full policy.
 
-## API Reference
+== API Reference
 
-### ClaudeGitLabBridge
+=== ClaudeGitLabBridge
 
 Main class for interacting with the bridge.
 
@@ -274,7 +274,7 @@ class ClaudeGitLabBridge {
 
 See [API.md](docs/API.md) for complete reference.
 
-## Roadmap
+== Roadmap
 
 * [x] GitLab API integration
 * [x] Claude API integration
@@ -287,7 +287,7 @@ See [API.md](docs/API.md) for complete reference.
 * [ ] Bitbucket integration
 * [ ] Web UI dashboard
 
-## Contributing
+== Contributing
 
 We welcome contributions! Please see:
 
@@ -296,7 +296,7 @@ We welcome contributions! Please see:
 3. Check [open issues](https://github.com/hyperpolymath/claude-gitlab-bridge/issues)
 4. Look for `good first issue` labels
 
-### Quick Contribution Steps
+=== Quick Contribution Steps
 
 1. Fork the repository
 2. Create feature branch: `git checkout -b feature/my-feature`
@@ -305,13 +305,13 @@ We welcome contributions! Please see:
 5. Push: `git push origin feature/my-feature`
 6. Open Pull Request
 
-## Community
+== Community
 
 * 💬 [Discussions](https://github.com/hyperpolymath/claude-gitlab-bridge/discussions)
 * 🐛 [Issues](https://github.com/hyperpolymath/claude-gitlab-bridge/issues)
 * 📧 Email: hello@hyperpolymath.dev
 
-## License
+== License
 
 This project is licensed under the [MIT License](LICENSE.txt).
 
@@ -319,20 +319,20 @@ This project is licensed under the [MIT License](LICENSE.txt).
 SPDX-License-Identifier: MIT
 ```
 
-## Acknowledgments
+== Acknowledgments
 
 * [Anthropic](https://www.anthropic.com/) for the Claude API
 * [GitLab](https://about.gitlab.com/) for excellent API documentation
 * All our [contributors](CONTRIBUTORS.md)
 * The open source community
 
-## Authors
+== Authors
 
-* **hyperpolymath** - *Initial work* - [GitHub](https://github.com/hyperpolymath)
+* *hyperpolymath* - *Initial work* - [GitHub](https://github.com/hyperpolymath)
 
 See [CONTRIBUTORS.md](CONTRIBUTORS.md) for full list of contributors.
 
-## Support
+== Support
 
 Need help?
 
@@ -341,7 +341,7 @@ Need help?
 * 🐛 Report [issues](https://github.com/hyperpolymath/claude-gitlab-bridge/issues)
 * 📧 Email: hello@hyperpolymath.dev
 
-## Status
+== Status
 
 * Build: ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)
 * Coverage: ![Coverage](https://img.shields.io/badge/coverage-80%25-green?style=flat-square)
@@ -349,6 +349,6 @@ Need help?
 
 ---
 
-**Built with ❤️ by the community**
+*Built with ❤️ by the community*
 
 For more information, visit our [website](https://hyperpolymath.dev) or check out the [documentation](docs/).
