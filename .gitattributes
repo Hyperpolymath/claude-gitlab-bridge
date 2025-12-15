@@ -1,83 +1,54 @@
-# GitLab-Claude Bridge - Git Attributes
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: 2024 hyperpolymath
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# RSR-compliant .gitattributes
 
-# Auto detect text files and perform LF normalization
 * text=auto eol=lf
 
-# Source code
-*.ts text eol=lf
-*.js text eol=lf
-*.mjs text eol=lf
-*.cjs text eol=lf
-*.json text eol=lf
-*.yml text eol=lf
-*.yaml text eol=lf
+# Source
+*.rs    text eol=lf diff=rust
+*.ex    text eol=lf diff=elixir
+*.exs   text eol=lf diff=elixir
+*.jl    text eol=lf
+*.res   text eol=lf
+*.resi  text eol=lf
+*.ada   text eol=lf diff=ada
+*.adb   text eol=lf diff=ada
+*.ads   text eol=lf diff=ada
+*.hs    text eol=lf
+*.chpl  text eol=lf
+*.scm   text eol=lf
+*.ncl   text eol=lf
+*.nix   text eol=lf
 
-# Documentation
-*.md text eol=lf
-*.adoc text eol=lf
-*.txt text eol=lf
+# Docs
+*.md    text eol=lf diff=markdown
+*.adoc  text eol=lf
+*.txt   text eol=lf
 
-# Configuration
-*.toml text eol=lf
-*.ini text eol=lf
-*.conf text eol=lf
-.gitignore text eol=lf
+# Data
+*.json  text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.toml  text eol=lf
+
+# Config
+.gitignore     text eol=lf
 .gitattributes text eol=lf
+justfile       text eol=lf
+Makefile       text eol=lf
+Containerfile  text eol=lf
 
-# Shell scripts
-*.sh text eol=lf
-*.bash text eol=lf
+# Scripts
+*.sh   text eol=lf
 
-# Nix files
-*.nix text eol=lf
-flake.lock text eol=lf
-
-# Build files
-justfile text eol=lf
-Makefile text eol=lf
-Dockerfile text eol=lf
-
-# Binary files
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.gif binary
-*.ico binary
-*.pdf binary
-*.zip binary
-*.tar binary
-*.gz binary
-
-# Archives
-*.7z binary
-*.gz binary
-*.tar binary
-*.zip binary
-
-# Fonts
-*.ttf binary
-*.otf binary
-*.woff binary
+# Binary
+*.png   binary
+*.jpg   binary
+*.gif   binary
+*.pdf   binary
 *.woff2 binary
+*.zip   binary
+*.gz    binary
 
-# Video
-*.mp4 binary
-*.mov binary
-*.avi binary
-
-# Audio
-*.mp3 binary
-*.ogg binary
-*.wav binary
-
-# Git LFS
-*.psd filter=lfs diff=lfs merge=lfs -text
-*.ai filter=lfs diff=lfs merge=lfs -text
-
-# Export-ignore (not included in archives)
-.git* export-ignore
-.github export-ignore
-tests/ export-ignore
-docs/examples/ export-ignore
+# Lock files
+Cargo.lock  text eol=lf -diff
+flake.lock  text eol=lf -diff
