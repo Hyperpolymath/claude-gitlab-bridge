@@ -1,86 +1,71 @@
 ;; SPDX-License-Identifier: AGPL-3.0-or-later
 ;; SPDX-FileCopyrightText: 2025 Jonathan D.A. Jewell
-;; ECOSYSTEM.scm — claude-gitlab-bridge
+;; ECOSYSTEM.scm - Project Ecosystem Relationships
+;; claude-gitlab-bridge
+;; Reference: https://github.com/hyperpolymath/ECOSYSTEM.scm
 
 (ecosystem
   (version "1.0.0")
   (name "claude-gitlab-bridge")
   (type "project")
-  (purpose "Bidirectional interface enabling Claude AI to interact with GitLab APIs")
+  (purpose "> Bridge between Claude AI and GitLab for enhanced developer productivity")
 
   (position-in-ecosystem
-    "Part of hyperpolymath ecosystem. Follows RSR guidelines. Core integration layer for AI-assisted GitLab workflows.")
+    "Part of the hyperpolymath ecosystem of tools, libraries, and specifications.
+     Follows RSR (Rhodium Standard Repositories) guidelines for consistency,
+     security, and maintainability. Integrated with multi-platform CI/CD
+     (GitHub, GitLab, Bitbucket) and OpenSSF Scorecard compliance.")
 
-  ;;; Internal Integrations
-  (integrations-internal
-    (all-projects
-      (purpose . "Deployment and management")
-      (protocol . "gitlab-api")))
-
-  ;;; External Integrations
-  (integrations-external
-    (gitlab
-      (purpose . "Primary API endpoint")
-      (protocol . "rest-api-v4")
-      (auth . "personal-access-token")
-      (base-url . "https://gitlab.com/api/v4")
-      (operations . (projects repositories issues merge-requests pipelines releases wikis)))
-    (claude
-      (purpose . "Command generation target")
-      (protocol . "json-commands")
-      (direction . "bidirectional")
-      (capabilities . (command-generation response-parsing context-management))))
-
-  ;;; API Interfaces
-  (apis
-    (cli
-      (interface . "deno-cli")
-      (modes . (interactive execute batch)))
-    (internal
-      (endpoint . "http://localhost:8888")
-      (protocol . "http")
-      (optional . #t)))
-
-  ;;; Related Projects
   (related-projects
+    (project
+(name "hyperpolymath-ecosystem")
+(url "https://github.com/hyperpolymath")
+(relationship "ecosystem")
+(description "Part of the hyperpolymath project ecosystem")
+(differentiation
+  "Individual project within a larger cohesive ecosystem"))
+
     (project
       (name "rhodium-standard-repositories")
       (url "https://github.com/hyperpolymath/rhodium-standard-repositories")
-      (relationship "standard"))
+      (relationship "standard")
+      (description "RSR compliance guidelines this project follows")
+      (differentiation
+        "RSR = Standards and templates
+         This project = Implementation following those standards"))
+
     (project
-      (name "anthropic-sdk")
-      (url "https://github.com/anthropics/anthropic-sdk-typescript")
-      (relationship "dependency")))
+      (name "META.scm")
+      (url "https://github.com/hyperpolymath/META.scm")
+      (relationship "sibling-standard")
+      (description "Machine-readable Engineering and Technical Architecture format")
+      (differentiation
+        "META.scm = Architecture decisions format
+         ECOSYSTEM.scm = Project relationship format"))
 
-  ;;; Bridge Capabilities
-  (capabilities
-    (command-generation
-      (description . "Generate GitLab API commands from natural language")
-      (dry-run . #t))
-    (batch-execution
-      (description . "Execute multiple GitLab operations in sequence")
-      (json-input . #t))
-    (comprehensive-logging
-      (description . "Full audit trail of all operations")
-      (log-file . "~/.claude-gitlab-bridge/bridge.log"))
-    (error-handling
-      (description . "Automatic retries with exponential backoff")
-      (max-retries . 3)))
+    (project
+      (name "state.scm")
+      (url "https://github.com/hyperpolymath/state.scm")
+      (relationship "sibling-standard")
+      (description "Stateful Context Tracking Engine for AI Conversation Continuity")
+      (differentiation
+        "STATE.scm = Session/conversation persistence format
+         ECOSYSTEM.scm = Project relationship format")))
 
-  ;;; What This Is / Is Not
   (what-this-is
-    "Bidirectional bridge for Claude-GitLab interaction enabling:
-     - GitLab API operations (CRUD on projects, repos, issues, MRs)
-     - CI/CD pipeline control
-     - Command generation for Claude
-     - Batch operation execution
-     - Dry-run mode for safety")
+    "> Bridge between Claude AI and GitLab for enhanced developer productivity
+
+     Design principles:
+     - RSR Gold compliance target
+     - Multi-platform CI/CD (GitHub, GitLab, Bitbucket)
+     - SHA-pinned GitHub Actions for security
+     - SPDX license headers on all files
+     - OpenSSF Scorecard compliance")
 
   (what-this-is-not
-    "- NOT direct Claude API integration (generates commands only)
-     - NOT for self-hosted GitLab without modification
-     - NOT for git operations beyond GitLab API
-     - NOT for repository content analysis
-     - NOT for automated code review
-     - NOT for GitLab administration tasks
-     - NOT exempt from RSR compliance"))
+    "- NOT a standalone tool without ecosystem integration
+     - NOT exempt from RSR compliance requirements
+     - NOT designed for incompatible license frameworks
+     - NOT maintained outside the hyperpolymath ecosystem"))
+
+;;; End of ECOSYSTEM.scm
